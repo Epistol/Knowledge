@@ -1,0 +1,10 @@
+SUITE ALGO TP5
+
+SI tabACL[j].UnDroit != 0
+	SI droit < tabACL[j].UnDroit
+		droit <- tabACL[j].UnDroit
+	FIN SI
+FIN SI
+FIN SI
+FIN SI
+j++

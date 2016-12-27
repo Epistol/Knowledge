@@ -1,5 +1,7 @@
-chaine = print("MEDASSI;Anthony;1978//06/12","NAUDIER;Nans;1978/10/19")
-str(chaine)
-print (chaine.split(' ', 3) and chaine.replace(";", " "))
-
-
+from anydbm import *
+import dbm
+if __name__ == '__main__' :
+    dbmfile = dbm.open("testfilename.txt",'c')
+    dbmfile['F1'] = 'Orange'
+    dbmfile['F2'] = 'Abricot'
+    close()
