@@ -7,7 +7,7 @@
 
 #La démarche
 
-Dans une démarche de partage et de minimalisme, je met à disposition mes connaissances.
+Dans une démarche de partage et de minimalisme, je met à disposition mes connaissances .
 
 
 #Pourquoi ? 
