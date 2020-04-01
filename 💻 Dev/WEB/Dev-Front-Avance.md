@@ -325,13 +325,12 @@ L’orienté objet ne prend son sens que lorsqu’on applique des design pattern
 
 ### Principes de la POO
 
-	<span style="text-decoration:underline;"><span style="text-decoration:underline;">1 - L’héritage</span>
+#### 1 - L’héritage
 
 D’un parent découle un enfant et toutes les propriétés du parent sont transmises à l’enfant pour éviter la redondance. C’est une façon de dupliquer son code de façon moins “encombrante”.
 
 D’autres termes synonymes : spécialisation, dérivation. (à compléter)
-
-	<span style="text-decoration:underline;"><span style="text-decoration:underline;">2 - L’encapsulation</span>
+#### 2 - L’encapsulation
 
 Protection de l’accès de certaines valeurs pour qu’elles ne soient pas modifiables au delà du but auquel elles étaient allouées lors de leur création.
 
@@ -390,16 +389,14 @@ getEleves: function() {
 ```
 
 
-	<span style="text-decoration:underline;"><span style="text-decoration:underline;">3 - Polymorphisme</span>
+#### 3 - Polymorphisme
 
 Signature de méthode : composition entre le nom d’une fonction, ses paramètres et son type de retour
 
-**Le polymorphisme se base sur une signature de méthode identique pour effectuer des opérations internes différentes.** Exemple :
+**Le polymorphisme se base sur une signature de méthode identique pour effectuer des opérations internes différentes.** 
 
- 
-
-
-```
+Exemple : 
+```js
 var Character = function(name) {
 	// fonction constructor, est appelée à l'instanciation d'un objet
 	this.name = name;
@@ -482,7 +479,7 @@ Game.prototype.stop = function() {
 Pour lancer le jeu :
 
 
-```
+```js
 var gameoflife = new Game();
 gameoflife.start();
 gameoflife.addCharacter(new Pedestrian("wilsaï"));
@@ -493,14 +490,14 @@ az
 **!** Si un élément n’est pas dans un contexte objet, alors le this fait référence à l’objet Global Window
 
 
-```
+```js
 var f = function() {
  console.log(this); // log l'objet Window
 };
 ```
 
 
-<span style="text-decoration:underline;"><span style="text-decoration:underline;">4 - Composition</span>
+#### 4 - Composition
 
 Possibilité d’associer un objet dans un autre. Exemple granularité forte : Policeman (voir 3.Polymorphisme) -> dépend de Character fortement.
 
@@ -509,7 +506,7 @@ Le but de la POO ( -> Avoir la granularité la plus légère possible (des objet
 Ex Composition:
 
 
-```
+```js
 var Moteur = function(carburant) {
   this.carburant = carburant;
 };
@@ -523,10 +520,7 @@ Voiture.prototype.setMoteur = function(moteur) {
 };
 ```
 
-
-
-
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Node & Meteor js</span>**
+## Node & Meteor js
 
 [http://ericpriou.net/formations/meteor/fr/](http://ericpriou.net/formations/meteor/fr/)
 
@@ -535,8 +529,6 @@ Meteor met en avant le principe d’isomorphisme -> même forme.
 <span style="text-decoration:underline;"><span style="text-decoration:underline;">Pattern utilisé régulièrement utilisé jusqu’à 2011:</span>
 
 Côté serveur :
-
-
 
 *   couche de persistance (base de donnée)
 *   Routing => accéder à du contenu
@@ -547,8 +539,6 @@ Côté serveur :
 
 Client (partie applicative) => Single Page Application:
 
-
-
 *   DOM Manipulation
 *   UX
 *   View Layer
@@ -557,14 +547,11 @@ Client (partie applicative) => Single Page Application:
 
 Back-end:
 
-
-
 *   Persistence
 
 <span style="text-decoration:underline;"><span style="text-decoration:underline;">Avec Meteor:</span>
 
 Backend:
-
 
 
 *   Persistence
@@ -578,8 +565,6 @@ Client:
 
 Shared: 
 
-
-
 *   View Layer
 *   Application Logic
 *   Routing
@@ -588,9 +573,9 @@ Meteor -> partager gestion de la vue, logique de l’application et le routing e
 
 Websocket : canal ouvert de façon permanente (port 80 = Port réservé requêtes HTTP) pour faire de l’échange de données en temps réel entre le client et le serveur.
 
-Premier Principe: Isomorphisme
+#### Premier Principe: Isomorphisme
 
-Deuxième principe: One language (JavaScript)
+#### Deuxième principe: One language (JavaScript)
 
 Cordova - > instancie au sein de l’application native une webview (DOM standard sans les boutons d’interaction propres au mobile)
 
@@ -600,12 +585,12 @@ Pour utiliser mongoDB, sur un environnement METEOR, il suffit de faire à la rac
 
 (Show collections pour voir les tables)
 
-<span style="text-decoration:underline;"><span style="text-decoration:underline;">Insérer des données</span>
+#### Insérer des données
 
 Pour insérer des données dans l’HTML, il faut créer des templates et les appeler grâce à des partials: 
 
 
-```
+```vue
 <body>
 	<h1>Liste</h1>
 	{{students_ui}}
@@ -624,7 +609,7 @@ Pour insérer des données dans l’HTML, il faut créer des templates et les ap
 Et dans le `main.js`, il faut créer un lien entre les données et la variables `all_students` :
 
 
-```
+```js
 Template.students_ui.helpers
 (
     {
@@ -641,7 +626,7 @@ Pour empêcher le client d’envoyer des données dans la base de donnée il fau
 
 meteor remove autopublish
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Sujets exercices JS</span>**
+## Sujets exercices JS
 
 
 
@@ -726,7 +711,7 @@ Minification
 
 **Composition** : réutilisation de différentes fonctions afin d’arriver à des fonctions modulaires et atomiques
 
-**Downcasting `` **: Caster (vérifications, appels de méthodes) sur la Super Class (parent).
+**Downcasting**: Caster (vérifications, appels de méthodes) sur la Super Class (parent).
 
 **Isomorphisme** : iso = même, morphisme = forme. L’un des principes utilisé par Meteor. Même logique et vues en front et en back. 1 seul code exécuté soit côté client, soit côté serveur, soit les deux.
 
@@ -737,8 +722,7 @@ Minification
 **Partial** : Insertion d’un bloc de texte à l’intérieur du HTML
 
 
-
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">RESSOURCES</span>**
+## RESSOURCES
 
 [https://codecombat.com/](https://codecombat.com/) 
 
@@ -749,6 +733,3 @@ Pour s’entraîner ! Si vous galérez un peu en JS :)
 Design Patterns - Tête la première :  [https://github.com/Symfomany/poo/blob/master/cours/Design%20patterns%20-%20T%C3%AAte%20la%20premi%C3%A8re.pdf](https://github.com/Symfomany/poo/blob/master/cours/Design%20patterns%20-%20T%C3%AAte%20la%20premi%C3%A8re.pdf) (pff…)
 
 **<span style="text-decoration:underline;"><span style="text-decoration:underline;">METEOR</span>**
-
-
-<!-- Docs to Markdown version 1.0β20 -->
