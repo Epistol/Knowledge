@@ -1,11 +1,9 @@
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">DEV FRONT AVANCÉ</span>**
+# DEV FRONT AVANCÉ
 
-Il y a un glossaire et une page de ressources à la fin.  \
-N’hésitez pas à la remplir et la complét-er ;)
+Il y a un glossaire et une page de ressources à la fin.  \ N’hésitez pas à la remplir et la compléter ;)
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Introduction ECMAScript</span>**
-
-<span style="text-decoration:underline;"><span style="text-decoration:underline;">Points historiques</span>
+## Introduction ECMAScript
+### Points historiques
 
 
 
@@ -19,6 +17,7 @@ L’**ECMAScript** est un _standard_
 
 → standard = avantage car synonyme de pérennité du fait des problématiques hors contexte industriel et commerciales
 
+
 Depuis l’apparition de **node.js** (2009), l’ECMAScript a gagné en popularité et connaît une évolution rapide depuis plusieurs années.
 
 → node.js : produit open-source qui fait fonctionner la machine virtuelle appartenant à Google (V8), issu de la volonté d’ajouter des fonctionnalités “I/O” (input/output) qui dépasseraient le cadre d’un navigateur, tout en utilisant la syntaxe JS
@@ -29,11 +28,12 @@ Depuis l’apparition de **node.js** (2009), l’ECMAScript a gagné en populari
 
 <span style="text-decoration:underline;"><span style="text-decoration:underline;">Remarque</span> : l’asynchronisme a permis la création du cloud computing (= [réplication](https://fr.wikipedia.org/wiki/R%C3%A9plication_(informatique)) des données pour accès rapide)
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Contexte d’évaluation d’ECMAScript</span>**
+## Contexte d’évaluation d’ECMAScript
 
 - Browser : JavaScript + interface graphique
 
 - NodeJS : Outils sans interface graphique
+
 
 Pour évaluer ECMAScript, nécessitait d’utiliser une machine virtuelle pour compiler le code dynamiquement en binaire (contrairement au langages comme le C qui nécessite une compilation manuelle).
 
@@ -43,11 +43,11 @@ Il est important de ne pas inscrire de logique dans le template HTML (Model) pui
 
 DOM = standard du W3C au même titre que HTML et CSS. Permet de connecter HTML, CSS et ES.
 
-La logique métier c’est les Controllers, une série de Controllers permet d’expliquer les logiques métiers de l’application (dur à expliquer putain ahahahahahaha). -> MAIS oui c’est clair
+La logique métier c’est les Controllers, une série de Controllers permet d’expliquer les logiques métiers de l’application (dur à expliquer).
 
  
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Fonctionnement d’une machine virtuelle</span>**
+## Fonctionnement d’une machine virtuelle
 
 Les machines virtuelles fonctionnent sur des threads; dans le cas de l’ECMAScript, la machine virtuelle est “mono-threadé” : on ne peut pas lire ET écrire simultanément dans le même espace. Il y a donc un cycle permanent de rafraîchissement où chaque cycle doit se terminer pour permettre un nouveau rafraîchissement de la page.  \
 → 2 choses peuvent bloquer ce thread : trop d’éléments dans le DOM ou bien scripts lourds.
@@ -59,14 +59,19 @@ Au début du cycle, VM lit le code pour le transformer en code machine jusqu’�
 // TIPS // Pour calculer le taux de rafraîchissement : 
 
 
+```js
+      let start = new Date()
+      setInterval(
+        function () {
+          const end = new Date()
+          console.log(end - start)
+          start = end
+        }, 0,
+      )
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/DEV-FRONT0.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+```
 
-
-![alt_text](images/DEV-FRONT0.png "image_tooltip")
-
-
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Callstack/ Pile d’appel</span>**
+## Callstack/ Pile d’appel
 
 Cycle de fonctions utilisé pour emmagasiner plusieurs valeurs et garder une trace de l’endroit où chaque fonction retourne à la fin de son exécution 
 
@@ -77,21 +82,18 @@ Cycle de fonctions utilisé pour emmagasiner plusieurs valeurs et garder une tra
 Génération du DOM, parsing CSS, exécution des scripts = synchrone, ce qui peut être bloquant → d’où la bonne pratique de déclarer ses scripts après le DOM.  \
 → deux nouveaux attributs `async` et `defer` : [http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html](http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Variables</span>**
+## Variables
 
-Stockage d’une variable avec mot-clé `var`et valeur associée. Ex : var i = 2;
+Stockage d’une variable avec mot-clé `var` (et let) et valeur associée. Ex : var i = 2;
 
 2 fonctionnalités d’une variable :
 
+*   espace de stockage défini (`const`)
+*   espace de stockage que l’on va faire varier 
 
 
-*   espace de stockage défini
-*   espace de stockage que l’on va faire varier (≠ `const`)
-
- \
+ 
 **!**L’opérateur d’affectation `=` a plusieurs fonctionnalités en fonction des types de données affectées
-
-
 
 *   primitives : chaîne, booléen, nombre, undefined, null
 *   complexes : array, object, function
@@ -107,7 +109,7 @@ Ex: var i = [1,2] ; var j = i ; i.push(3); console.log(j) ⇒ i et j sont égaux
 
 Ainsi, afin d’éviter des effets non désirés, on utilise en programmation fonctionnelle le concept d”’immutability”, qui implique que les fonctions retournent toujours un nouvel objet afin d’éviter de changer la référence, potentiellement utilisée à plusieurs endroits dans le code.
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Portée des variables</span>**
+## Portée des variables
 
 Portée = contexte d’évaluation des variables.
 
@@ -122,11 +124,13 @@ De façon à protéger l’ensemble des variables, on utilise les IIFE (Immediat
 <span style="text-decoration:underline;"><span style="text-decoration:underline;">Notion de **closure**</span> : chaque fonction crée un espace enclos propre et <span style="text-decoration:underline;"><span style="text-decoration:underline;">persistant</span> qu’on appelle closure. Cette closure est accessible par les espaces enclos créés à l’intérieur de celle-ci (closures “enfants”).
 
 <span style="text-decoration:underline;"><span style="text-decoration:underline;">Namespace (en ES5)</span> : permet de partager un état / fonctionnalités à l’ensemble de l’application (tous les scripts partageront ce même objet).
-
-var hetic = hetic || {};
-
+	
+```js
+let hetic = hetic || {};
+```
+	
 Puis dans la IIFE : 
-
+```js
 (function() 
 
 {
@@ -138,7 +142,7 @@ Puis dans la IIFE :
     hetic.testFunc = function(){};
 
 });
-
+```
 ! un des désavantages majeurs est que cela nécessite de conserver l’ordre d’appel des scripts
 
 
@@ -146,11 +150,11 @@ Puis dans la IIFE :
 ---
 
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Workflow ECMAScript</span>**
+# Workflow ECMAScript
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Node & NPM</span>**
+## Node & NPM
 
-<span style="text-decoration:underline;"><span style="text-decoration:underline;">Node</span>
+### Node
 
 
 
@@ -172,11 +176,9 @@ Puis dans la IIFE :
 * **Notes pour la création d’un projet ES :**
 
 
-
 *   <span style="text-decoration:underline;"><span style="text-decoration:underline;">Gestion de versions</span> : suivant le schéma SemVer (Semantic Versioning), les noms de version sont indiqués comme suit : [Majeure] . [Mineure] . [Patch] 
 
 Ex : version 8.9.2 = version majeure 8, mineure 9, patch n°2
-
 
 
 *   La license MIT est une licence open-source très permissive qui permet donc de modifier à souhait le projet (cf. [https://opensource.org/licenses](https://opensource.org/licenses))
@@ -184,7 +186,7 @@ Ex : version 8.9.2 = version majeure 8, mineure 9, patch n°2
 <span style="text-decoration:underline;"><span style="text-decoration:underline;">Installation/désinstallation de package via npm (en local)</span>
 
 
-```
+```bash
 npm install "nom du package" --save 
 npm uninstall "nom du package" --save
 ```
@@ -203,7 +205,7 @@ Installation globale avec `-g`, mais on peut dupliquer l’installation dans le 
 Pour utiliser browserify, on tape la commande suivante : 
 
 
-```
+```bash
 browserify [mon fichier.js] -o [nom du fichier sortie.js]
 ```
 
@@ -219,7 +221,7 @@ Pour corriger le problème : `zsh: command not found: browserify` (si package gl
 **<span style="text-decoration:underline;"><span style="text-decoration:underline;">UglifyJS</span>**
 
 
-```
+```bash
 npm install -g uglifyjs
 ```
 
@@ -231,7 +233,7 @@ Ne pas oublier d’utiliser **<span style="text-decoration:underline;"><span sty
 Lancer la commande suivante : 
 
 
-```
+```bash
 browserify -g uglifyify ./main.js > bundle.js 
 ```
 
@@ -241,7 +243,7 @@ browserify -g uglifyify ./main.js > bundle.js
 Dans un premier temps, installer le package babel-preset-env (pour gérer compilation es6 à es5).
 
 
-```
+```bash
 npm install --save-dev babel-preset-env
 ```
 
@@ -249,7 +251,7 @@ npm install --save-dev babel-preset-env
 Dans un second temps, installer les packages babelify (pont babel vers browserify)et babel-core.
 
 
-```
+```bash
 npm install --save-dev babelify babel-core
 ```
 
@@ -257,7 +259,7 @@ npm install --save-dev babelify babel-core
 Puis lancer la commande suivante :
 
 
-```
+```bash
 browserify main.js -o bundle.js -t [ babelify --presets [ env ] ]
 ```
 
@@ -275,9 +277,8 @@ Permet de partager des modules de code au reste de l’application.
 
 En exportant une fonction comme dans l’exemple dessous, on exporte une référence à la fonction.
 
-
-```
 Ex: 
+```js
   var add = function(a, b) {
     return a + b;
   };
@@ -290,7 +291,7 @@ Ex:
 En programmation fonctionnelle on utilise le terme de composition (currying est une des formes de la composition), qui permet d’appeler plusieurs petits bouts de codes (code modulaire) comme dans l’exemple suivant :
 
 
-```
+```js
 var divide = function(a, b) {
   return a / b;
 };
@@ -305,9 +306,9 @@ module.exports = {
 ```
 
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">LESS</span>**
+## LESS
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">POO</span>** \
+## POO
 Historiquement, avec la création du C (langage), les développeurs ont créé les fonctions pour factoriser du code. Cependant, cela ne suffisait pas et on a donc créé classes (packages, soit des groupes de fonctions ) à partir desquels on crée des objets.
 
 Entre la classe et l’objet, on trouve l’instanciation, c’est-à-dire la création d’un nouvel objet (avec `new`) selon cette classe.
@@ -322,7 +323,7 @@ Une classe est constituée de propriétés (primitives ou complexes) et de méth
 
 L’orienté objet ne prend son sens que lorsqu’on applique des design patterns pour structurer nos applications. Voir livre Design Patterns Tête la première
 
-**<span style="text-decoration:underline;"><span style="text-decoration:underline;">Principes de la POO</span>**
+### Principes de la POO
 
 	<span style="text-decoration:underline;"><span style="text-decoration:underline;">1 - L’héritage</span>
 
@@ -348,7 +349,7 @@ La fonction Object.defineProperties permet de créer des <span style="text-decor
 ex: 
 
 
-```
+```js
 var student = {name: Steeuve}; 
 Object.defineProperties(student, {
   "address": {
@@ -366,7 +367,7 @@ Attention à ne pas “briser l’encapsulation”, donner la possibilité de mo
 ex :
 
 
-```
+```js
 var maternelle = {
   eleves: [],
   getEleves: function() { // ici on retourne une référence au array eleves
