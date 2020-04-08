@@ -1,0 +1,6 @@
+VoIP voix sur ip
+
+Avant : 
+TEL -> PABX (Autocommutateur) -> TEL
+
+TEL IP - IPBX (Autocommutateur VoIP) - Tel IP

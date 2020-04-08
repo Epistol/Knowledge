@@ -1,0 +1,24 @@
+Sécurisation des échanges : 
+
+Hadopi, loi DADVOS, loi LCEN, 
+
+Qu’est-ce qu’une donnée personnelle ?
+Art. 2 de la loi "Informatique et libertés"
+
+" Constitue une donnée à caractère personnel toute information relative à une personne physique identifiée ou qui peut être identifiée, directement ou indirectement, par référence à un numéro d’identification ou à un ou plusieurs éléments qui lui sont propres. Pour déterminer si une personne est identifiable, il convient de considérer l’ensemble des moyens en vue de permettre son identification dont dispose ou auxquels peut avoir accès le responsable du traitement ou toute autre personne ".
+
+" La personne concernée par un traitement de données à caractère personnel est celle à laquelle se rapportent les données qui font l’objet du traitement ".
+
+Point de vue de la CNIL
+
+Les données sont considérées "à caractère personnel" dès lors qu’elles concernent des personnes physiques identifiées directement ou indirectement.
+
+Une personne est identifiée lorsque par exemple son nom apparaît dans un fichier.
+
+Une personne est identifiable lorsqu’un fichier comporte des informations permettant indirectement son identification (ex. : adresse IP, nom, n° d’immatriculation, n° de téléphone, photographie, éléments biométriques tels que l’empreinte digitale, ADN, numéro d’Identification Nationale Étudiant (INE), ensemble d’informations permettant de discriminer une personne au sein d’une population (certains fichiers statistiques) tels que, par exemple, le lieu de résidence et profession et sexe et age,....).
+
+Des données que vous pourriez considérer comme anonymes peuvent constituer des données à caractère personnel si elles permettent d’identifier indirectement ou par recoupement d’informations une personne précise. Il peut en effet s’agir d’informations qui ne sont pas associées au nom d’une personne mais qui permettent aisément de l’identifier et de connaître ses habitudes ou ses goûts.
+
+En ce sens, constituent également des données à caractère personnel toutes les informations dont le recoupement permet d’identifier une personne précise. (ex. : une empreinte digitale, l’ADN, une date de naissance associée à une commune de résidence …).
+
+Les technologies de l’information et de la communication génèrent de nombreuses données personnelles (un appel passé par un téléphone portable, une connexion à Internet) et aussi des “traces informatiques” facilement exploitables grâce aux progrès des logiciels, notamment les moteurs de recherche.
